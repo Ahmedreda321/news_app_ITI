@@ -15,7 +15,11 @@ class LocalNews extends StatelessWidget {
       },
       child: Container(
         margin: EdgeInsets.symmetric(vertical: screenSize.height * 0.005),
-        padding: EdgeInsets.all(screenSize.width * 0.021),
+        padding: EdgeInsets.only(
+            right: screenSize.width * 0.025,
+            left: screenSize.width * 0.035,
+            top: screenSize.height * 0.01,
+            bottom: screenSize.height * 0.02),
         height: screenSize.height * 0.16,
         width: screenSize.width * 0.9,
         decoration: BoxDecoration(

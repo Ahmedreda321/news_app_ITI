@@ -15,96 +15,114 @@ class HomeScreen extends StatelessWidget {
     final Size screenSize = MediaQuery.of(context).size;
 
     return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.all(screenSize.width * 0.04),
-        child: CustomScrollView(
-          slivers: <Widget>[
-            SliverToBoxAdapter(
-              child: SizedBox(
-                height: screenSize.height * 0.042,
+      body: GestureDetector(
+        onTap: () {
+          FocusScope.of(context).unfocus();
+        },
+        child: Padding(
+          padding: EdgeInsets.all(screenSize.width * 0.04),
+          child: CustomScrollView(
+            slivers: <Widget>[
+              SliverToBoxAdapter(
+                child: SizedBox(
+                  height: screenSize.height * 0.042,
+                ),
               ),
-            ),
-            SliverToBoxAdapter(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SizedBox(
-                    height: screenSize.height * 0.05,
-                    width: screenSize.width * 0.75,
-                    child: TextField(
-                      decoration: InputDecoration(
-                        contentPadding: EdgeInsets.symmetric(
-                          vertical: screenSize.height * 0.02,
-                          horizontal: screenSize.width * 0.03,
-                        ),
-                        border: const OutlineInputBorder(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(50.0),
+              SliverToBoxAdapter(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(
+                      height: screenSize.height * 0.05,
+                      width: screenSize.width * 0.75,
+                      child: TextField(
+                        decoration: InputDecoration(
+                          contentPadding: EdgeInsets.symmetric(
+                            vertical: screenSize.height * 0.02,
+                            horizontal: screenSize.width * 0.03,
                           ),
+                          border: const OutlineInputBorder(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(50.0),
+                            ),
+                          ),
+                          labelStyle: TextStyle(
+                            fontFamily: 'nunito',
+                            fontSize: screenSize.width * 0.032,
+                            color: Colors.black,
+                          ),
+                          labelText: 'Dogecoin to the Moon...',
+                          suffixIcon: const Icon(Icons.search),
                         ),
-                        labelStyle: TextStyle(
-                          fontFamily: 'nunito',
-                          fontSize: screenSize.width * 0.032,
-                          color: Colors.black,
-                        ),
-                        labelText: 'Dogecoin to the Moon...',
-                        suffixIcon: const Icon(Icons.search),
                       ),
                     ),
+                    const NotificationIcon(),
+                  ],
+                ),
+              ),
+              const SliverToBoxAdapter(
+                child: LatestNews(),
+              ),
+              SliverToBoxAdapter(
+                child: SizedBox(
+                  height: screenSize.height * 0.25,
+                  width: screenSize.width,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    shrinkWrap: true,
+                    itemCount: 5,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding:
+                            EdgeInsets.only(right: screenSize.width * 0.001),
+                        child: const FeaturedArticle(),
+                      );
+                    },
                   ),
-                  const NotificationIcon(),
-                ],
-              ),
-            ),
-            const SliverToBoxAdapter(
-              child: LatestNews(),
-            ),
-            SliverToBoxAdapter(
-              child: SizedBox(
-                height: screenSize.height * 0.29,
-                width: screenSize.width,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  shrinkWrap: true,
-                  itemCount: 5,
-                  itemBuilder: (context, index) {
-                    return const FeaturedArticle();
-                  },
                 ),
               ),
-            ),
-            SliverToBoxAdapter(
-              child: SizedBox(
-                height: screenSize.height * 0.03,
-              ),
-            ),
-            SliverToBoxAdapter(
-              child: SizedBox(
-                height: screenSize.height * 0.046,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  physics: const BouncingScrollPhysics(),
-                  itemCount: category_list.length,
-                  itemBuilder: (context, i) {
-                    return CategoryWidget(catmodel: category_list[i]);
-                  },
+              SliverToBoxAdapter(
+                child: SizedBox(
+                  height: screenSize.height * 0.03,
                 ),
               ),
-            ),
-            SliverToBoxAdapter(
-              child: SizedBox(
-                height: screenSize.height * 0.03,
+              SliverToBoxAdapter(
+                child: SizedBox(
+                  height: screenSize.height * 0.046,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    physics: const BouncingScrollPhysics(),
+                    itemCount: category_list.length,
+                    itemBuilder: (context, i) {
+                      return Padding(
+                        padding:
+                            EdgeInsets.only(right: screenSize.width * 0.02),
+                        child: CategoryWidget(catmodel: category_list[i]),
+                      );
+                    },
+                  ),
+                ),
               ),
-            ),
-            SliverList(
-              delegate: SliverChildBuilderDelegate(
-                (context, index) {
-                  return const LocalNews();
-                },
-                childCount: 5,
+              SliverToBoxAdapter(
+                child: SizedBox(
+                  height: screenSize.height * 0.03,
+                ),
               ),
-            ),
-          ],
+              SliverList(
+                delegate: SliverChildBuilderDelegate(
+                  (context, index) {
+                    return Padding(
+                      padding: EdgeInsets.only(
+                        bottom: screenSize.height * 0.003,
+                      ),
+                      child: const LocalNews(),
+                    );
+                  },
+                  childCount: 5,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
       extendBody: true,

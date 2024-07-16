@@ -9,7 +9,8 @@ class LatestNews extends StatelessWidget {
     final Size screenSize = MediaQuery.of(context).size;
 
     return Padding(
-      padding: EdgeInsets.only(bottom: screenSize.height * 0.02),
+      padding: EdgeInsets.only(
+          bottom: screenSize.height * 0.002, top: screenSize.height * 0.02),
       child: Row(
         children: [
           Text(

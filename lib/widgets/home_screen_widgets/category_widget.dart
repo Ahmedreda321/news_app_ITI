@@ -14,7 +14,7 @@ class CategoryWidget extends StatelessWidget {
       child: OutlinedButton(
         onPressed: () {},
         child: SizedBox(
-          width: screenSize.width * 0.2,
+          width: screenSize.width * 0.25,
           height: screenSize.height * 0.92,
           child: Center(
             child: Text(
