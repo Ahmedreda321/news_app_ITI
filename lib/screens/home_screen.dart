@@ -3,7 +3,6 @@ import 'package:flutter_application_1/models/category_model.dart';
 import 'package:flutter_application_1/widgets/home_screen_widgets/category_widget.dart';
 import 'package:flutter_application_1/widgets/home_screen_widgets/local_news.dart';
 import 'package:flutter_application_1/widgets/home_screen_widgets/notification_icon.dart';
-import 'package:flutter_application_1/widgets/home_screen_widgets/search_bar.dart';
 import 'package:flutter_application_1/widgets/home_screen_widgets/latest_news.dart';
 import 'package:flutter_application_1/widgets/home_screen_widgets/featured_article.dart';
 
@@ -42,7 +41,8 @@ class HomeScreen extends StatelessWidget {
                           borderRadius: BorderRadius.all(Radius.circular(50.0)),
                         ),
                         labelStyle: TextStyle(
-                          fontSize: screenSize.width * 0.03,
+                          fontFamily: 'nunito',
+                          fontSize: screenSize.width * 0.032,
                           color: Colors.black,
                         ),
                         labelText: 'Dogecoin to the Moon...',
@@ -54,10 +54,10 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
-            SliverToBoxAdapter(child: LatestNews()),
+            const SliverToBoxAdapter(child: LatestNews()),
             SliverToBoxAdapter(
               child: SizedBox(
-                height: screenSize.height * 0.3,
+                height: screenSize.height * 0.29,
                 width: screenSize.width,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
@@ -76,7 +76,7 @@ class HomeScreen extends StatelessWidget {
             ),
             SliverToBoxAdapter(
               child: SizedBox(
-                height: screenSize.height * 0.05,
+                height: screenSize.height * 0.046,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   physics: const BouncingScrollPhysics(),

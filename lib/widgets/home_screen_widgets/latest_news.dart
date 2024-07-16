@@ -1,36 +1,42 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class LatestNews extends StatelessWidget {
+  const LatestNews({super.key});
+
   @override
   Widget build(BuildContext context) {
+    final Size screenSize = MediaQuery.of(context).size;
+
     return Padding(
-      padding: const EdgeInsets.only(bottom: 16),
+      padding: EdgeInsets.only(bottom: screenSize.height * 0.02),
       child: Row(
         children: [
-          const Text(
+          Text(
             ' Latest News',
             style: TextStyle(
-                fontFamily: 'reda', fontSize: 18, fontWeight: FontWeight.w700),
+              fontFamily: 'reda',
+              fontSize: screenSize.width * 0.045,
+              fontWeight: FontWeight.w700,
+            ),
           ),
           const Spacer(),
           TextButton(
             onPressed: () {},
-            child: const Row(
+            child: Row(
               children: [
                 Text(
                   'See All   ',
                   style: TextStyle(
-                    color: Color(0xFF0080FF),
+                    color: const Color(0xFF0080FF),
                     fontFamily: 'Nunito',
                     fontWeight: FontWeight.w600,
-                    fontSize: 12,
+                    fontSize: screenSize.width * 0.03,
                   ),
                 ),
                 Icon(
                   Icons.arrow_forward,
-                  size: 20,
-                  color: Color(0xFF0080FF),
+                  size: screenSize.width * 0.05,
+                  color: const Color(0xFF0080FF),
                 ),
               ],
             ),

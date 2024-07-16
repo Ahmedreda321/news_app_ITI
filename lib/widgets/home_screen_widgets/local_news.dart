@@ -1,30 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/screens/test.dart';
-import 'package:flutter_application_1/utils/images/images.dart';
+import 'package:flutter_application_1/screens/news_details_screen.dart';
 
 class LocalNews extends StatelessWidget {
   const LocalNews({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final Size screenSize = MediaQuery.of(context).size;
+
     return InkWell(
       onTap: () {
-        Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => const MyWidget()));
+        Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) => const NewsDetailsScreen()));
       },
       child: Container(
-        margin: const EdgeInsets.symmetric(vertical: 5),
-        padding: const EdgeInsets.all(10),
-        height: 130,
-        width: 350,
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
+        margin: EdgeInsets.symmetric(vertical: screenSize.height * 0.005),
+        padding: EdgeInsets.all(screenSize.width * 0.021),
+        height: screenSize.height * 0.16,
+        width: screenSize.width * 0.9,
+        decoration: BoxDecoration(
+          gradient: const LinearGradient(
             colors: [Color(0xff626262), Colors.black],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
-          borderRadius: BorderRadius.all(Radius.circular(10.0)),
-          image: DecorationImage(
+          borderRadius: BorderRadius.circular(screenSize.width * 0.02),
+          image: const DecorationImage(
             image: AssetImage(
               'assets/images/WhatsApp Image 2024-07-14 at 19.22.51_45ca1e5f.jpg',
             ),
@@ -32,31 +33,49 @@ class LocalNews extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
-        child: const Column(
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
+              'Crypto investors should be prepared to lose all their money, BOE governor says',
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
-              'Crypto investors should be prepared to lose all their money, BOE governor says',
               style: TextStyle(
-                  height: 1.3,
-                  color: Colors.white,
-                  fontFamily: 'reda',
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700),
+                height: 1.3,
+                color: Colors.white,
+                fontFamily: 'reda',
+                fontSize: screenSize.width * 0.037,
+                fontWeight: FontWeight.w700,
+              ),
             ),
-            SizedBox(height: 15.0),
-            Text(
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              '“I’m going to say this very bluntly again,” he added. “Buy them only if you’re prepared to lose all your money.”',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 10,
-                  fontWeight: FontWeight.w400,
-                  fontFamily: 'nunito'),
+            SizedBox(height: screenSize.height * 0.02),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  '“Matt Villano”',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: screenSize.width * 0.030,
+                    fontWeight: FontWeight.w400,
+                    fontFamily: 'nunito',
+                  ),
+                ),
+                Text(
+                  '“Sunday, 9 May 2021”',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: screenSize.width * 0.030,
+                    fontWeight: FontWeight.w400,
+                    fontFamily: 'nunito',
+                  ),
+                ),
+              ],
             ),
           ],
         ),

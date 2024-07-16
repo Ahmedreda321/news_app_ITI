@@ -6,17 +6,20 @@ class NotificationIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Size screenSize = MediaQuery.of(context).size;
+
     return Container(
-      margin: const EdgeInsets.only(left: 16.0),
+      margin: EdgeInsets.only(left: screenSize.width * 0.04),
       decoration: BoxDecoration(
-        gradient:
-            LinearGradient(colors: [Color(0xffFF3A44), Color(0xffFF8086)]),
-        borderRadius: BorderRadius.circular(50.0),
+        gradient: const LinearGradient(
+          colors: [Color(0xffFF3A44), Color(0xffFF8086)],
+        ),
+        borderRadius: BorderRadius.circular(screenSize.width * 0.1),
       ),
       child: Image.asset(
         notification,
-        height: 40,
-        width: 40,
+        height: screenSize.height * 0.05,
+        width: screenSize.width * 0.1,
       ),
     );
   }
