@@ -11,7 +11,10 @@ class FeaturedArticle extends StatelessWidget {
     return InkWell(
       onTap: () {
         Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) => const NewsDetailsScreen()));
+          MaterialPageRoute(
+            builder: (context) => const NewsDetailsScreen(),
+          ),
+        );
       },
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: screenSize.width * 0.01),

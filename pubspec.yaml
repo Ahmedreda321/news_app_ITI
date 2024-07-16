@@ -40,6 +40,7 @@ dependencies:
   shared_preferences: 
   image_picker:  
   curved_labeled_navigation_bar: ^2.0.2 
+  readmore: ^3.0.0
  
 dev_dependencies: 
   flutter_lints: ^2.0.0 
@@ -81,6 +82,9 @@ flutter:
     - family: reda 
       fonts: 
         - asset: assets/fonts/FontsFree-Net-NewYorkSmallRegular.ttf
+    - family: sfpro 
+      fonts: 
+        - asset: assets/fonts/SFProText-Regular.ttf
   #         style: italic 
     - family: Nunito
       fonts: 

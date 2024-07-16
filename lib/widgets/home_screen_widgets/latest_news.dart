@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screens/hot_update_screen.dart';
 
 class LatestNews extends StatelessWidget {
   const LatestNews({super.key});
@@ -21,7 +22,13 @@ class LatestNews extends StatelessWidget {
           ),
           const Spacer(),
           TextButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const HotUpdateScreen(),
+                ),
+              );
+            },
             child: Row(
               children: [
                 Text(

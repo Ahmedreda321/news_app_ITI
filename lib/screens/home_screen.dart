@@ -38,7 +38,9 @@ class HomeScreen extends StatelessWidget {
                           horizontal: screenSize.width * 0.03,
                         ),
                         border: const OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(50.0),
+                          ),
                         ),
                         labelStyle: TextStyle(
                           fontFamily: 'nunito',
@@ -54,7 +56,9 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
-            const SliverToBoxAdapter(child: LatestNews()),
+            const SliverToBoxAdapter(
+              child: LatestNews(),
+            ),
             SliverToBoxAdapter(
               child: SizedBox(
                 height: screenSize.height * 0.29,
